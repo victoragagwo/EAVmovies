@@ -1,0 +1,53 @@
+.favorites-toast {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  background: #222;
+  color: #fff;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+  z-index: 9999;
+  font-weight: bold;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  transition: opacity 0.3s;
+}
+
+.favorites-search-input {
+  margin: 1rem auto 2rem auto;
+  display: block;
+  max-width: 320px;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  background: #4c3d3d;
+  color: #fff;
+}
+
+body.dark .favorites-search-input,
+.dark .favorites-search-input {
+  background: #181818;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+body.dark .favorites-search-input::placeholder,
+.dark .favorites-search-input::placeholder {
+  color: #bbb;
+  opacity: 1;
+}
+
+.favorite-btn{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.7rem;
+    color: #E50914;
+    text-shadow: 0 0 5px #000;
+}

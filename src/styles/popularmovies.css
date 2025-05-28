@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+
+.popular-movies-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.popular-movies-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: #E50914;
+  text-align: center;
+}
+
+.popular-movies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2rem;
+}
+
+.movie-card {
+  background: #181818;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.2);
+  transition: transform 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.movie-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 4px 24px rgba(229,9,20,0.2);
+}
+
+.movie-poster {
+  width: 100%;
+  height: 270px;
+  object-fit: cover;
+  border-bottom: 2px solid #E50914;
+}
+
+.movie-info {
+  padding: 1rem;
+  text-align: center;
+  color: #fff;
+}
+
+.movie-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.movie-release,
+.movie-vote {
+  font-size: 0.95rem;
+  margin: 0.2rem 0;
+}
+
+.back-to-top-btn {
+  position: fixed;
+  bottom: 36px;
+  right: 16px;
+  background: #181818cc;
+  border: none;
+  border-radius: 50%;
+  padding: 0.5rem;
+  box-shadow: 0 2px 12px rgba(121, 98, 98, 0.18);
+  cursor: pointer;
+  z-index: 1000;
+  transition: background 0.2s, box-shadow 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+.back-to-top-btn svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .back-to-top-btn {
+    bottom: 18px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+    padding: 0.25rem;
+  }
+  .back-to-top-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+}

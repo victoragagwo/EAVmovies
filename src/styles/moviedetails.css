@@ -1,0 +1,141 @@
+.movie-details-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #181818;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.25);
+  color: #fff;
+}
+
+.movie-details-back {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  color: #E50914;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: color 0.2s;
+}
+.movie-details-back:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.movie-details-content {
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+
+.movie-details-poster {
+  width: 260px;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+  background: #222;
+  object-fit: cover;
+}
+
+.movie-details-info {
+  flex: 1;
+}
+
+.movie-details-title {
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #E50914;
+}
+
+.movie-details-overview {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  color: #e0e0e0;
+}
+
+.movie-details-meta {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #bbb;
+  display: flex;
+  gap: 2rem;
+}
+
+.movie-details-genres {
+  font-size: 1rem;
+  color: #bbb;
+  margin-bottom: 1rem;
+}
+
+.movie-details-loading,
+.movie-details-error {
+  text-align: center;
+  color: #fff;
+  font-size: 1.3rem;
+  margin-top: 4rem;
+}
+
+@media (max-width: 900px) {
+  .movie-details-container {
+    padding: 1rem;
+    max-width: 98vw;
+  }
+  .movie-details-content {
+    gap: 1.2rem;
+  }
+  .movie-details-poster {
+    width: 180px;
+    min-width: 120px;
+  }
+  .movie-details-title {
+    font-size: 1.4rem;
+  }
+  .movie-details-overview {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .movie-details-container {
+    padding: 1.5rem;
+    max-width: 90vw;
+  }
+  .movie-details-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  .movie-details-poster {
+    width: 90vw;
+    max-width: 260px;
+    min-width: 0;
+    margin-bottom: 1rem;
+  }
+  .movie-details-info {
+    width: 100%;
+    padding: 0;
+  }
+  .movie-details-title {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+  .movie-details-overview {
+    font-size: 0.95rem;
+    text-align: center;
+  }
+  .movie-details-meta,
+  .movie-details-genres {
+    font-size: 0.95rem;
+    text-align: center;
+    flex-direction: column;
+    gap: 0.3rem;
+    align-items: center;
+    display: flex;
+  }
+  .movie-details-back {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    display: block;
+    text-align: left;
+  }
+}

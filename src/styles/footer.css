@@ -1,0 +1,43 @@
+.footer {
+  width: 100%;
+  height: auto;
+  padding: 1.2rem 0;
+  background: black;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  text-align: center;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  margin-top: 2rem;
+  transition: background 0.3s, color 0.3s;
+}
+
+.footer-light {
+  background: white;
+  color: #181818;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.footer-logo {
+  height: 60px;
+  width: auto;
+  margin-bottom: 0.2rem;
+}
+
+@media (max-width: 600px) {
+  .footer {
+    font-size: 0.85rem;
+    padding: 0.8rem 0.2rem;
+  }
+  .footer-content span {
+    word-break: break-word;
+    max-width: 95vw;
+    display: block;
+  }
+}

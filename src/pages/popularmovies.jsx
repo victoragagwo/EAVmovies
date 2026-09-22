@@ -3,9 +3,9 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/popularmovies.css';
 
-const POPULAR_URL = import.meta.env.VITE_TMDB_POPULAR_URL;
-const IMAGE_BASE = import.meta.env.VITE_TMDB_IMAGE_BASE;
-const GENRE_URL = import.meta.env.VITE_TMDB_GENRE_URL;
+const POPULAR_URL = import.meta.env.VITE_TMDB_POPULAR_URL || '';
+const IMAGE_BASE = import.meta.env.VITE_TMDB_IMAGE_BASE || 'https://image.tmdb.org/t/p/w300';
+const GENRE_URL = import.meta.env.VITE_TMDB_GENRE_URL || '';
 
 function PopularMovies({ movies: propMovies, isSearch, isGenreFilter, selectedGenres }) {
   const [movies, setMovies] = useState([]);
@@ -35,24 +35,38 @@ function PopularMovies({ movies: propMovies, isSearch, isGenreFilter, selectedGe
 
   // Fetch genre names for mapping IDs to names
   useEffect(() => {
+    if (!GENRE_URL) return;
     fetch(GENRE_URL)
       .then(res => res.json())
       .then(data => {
         const map = {};
         (data.genres || []).forEach(g => { map[g.id] = g.name; });
         setGenreNames(map);
-      });
+      })
+      .catch(() => {});
   }, []);
 
   // Fetch movies for the current page (only for popular, not search or genre filter)
   useEffect(() => {
     if (!isSearch && !isGenreFilter) {
+      if (!POPULAR_URL) {
+        setLoadingMore(false);
+        return;
+      }
       setLoadingMore(true);
-      fetch(`${POPULAR_URL.replace(/page=\d+/, `page=${page}`)}`)
+      const requestUrl = POPULAR_URL.includes('page=')
+        ? POPULAR_URL.replace(/page=\d+/, `page=${page}`)
+        : `${POPULAR_URL}${POPULAR_URL.includes('?') ? '&' : '?'}page=${page}`;
+
+      fetch(requestUrl)
         .then(res => res.json())
         .then(data => {
           setMovies(prev => page === 1 ? (data.results || []) : [...prev, ...(data.results || [])]);
           setTotalPages(data.total_pages || 1);
+          setLoadingMore(false);
+        })
+        .catch(() => {
+          setMovies([]);
           setLoadingMore(false);
         });
     }
